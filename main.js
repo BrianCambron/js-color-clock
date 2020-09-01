@@ -1,7 +1,33 @@
-const d = new Date();
-console.log(d);
+// var d = new Date();
+// console.log(d);
+//
+// var hours = new Date ();
+// console.log(hours.getHours());
+//
+// var minutes = new Date ();
+// console.log(minutes.getMinutes());
+//
+// var seconds = new Date ();
+// console.log(seconds.getSeconds());
+//
+// var currenttime = `${hours.getHours()}:${minutes.getMinutes()}:${seconds.getSeconds()}`;
+// console.log(currenttime);
 
 setInterval(function() {
-const d = new Date();
-document.getElementById("clock-display").innerHTML = d;
-console.log(d);} , 1000);
+  var d = new Date();
+  console.log(d);
+
+  var hours = new Date ();
+  console.log(hours.getHours());
+
+  var minutes = new Date ();
+  console.log(minutes.getMinutes());
+
+  var seconds = new Date ();
+  console.log(seconds.getSeconds());
+
+  var currenttime = `${hours.getHours()}:${minutes.getMinutes()}:${seconds.getSeconds()}`;
+  console.log(currenttime);
+
+document.getElementById("clock-display").innerHTML = currenttime;
+console.log(currenttime);} , 1000);
