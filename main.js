@@ -1,32 +1,21 @@
-// var d = new Date();
-// console.log(d);
-//
-// var hours = new Date ();
-// console.log(hours.getHours());
-//
-// var minutes = new Date ();
-// console.log(minutes.getMinutes());
-//
-// var seconds = new Date ();
-// console.log(seconds.getSeconds());
-//
-// var currenttime = `${hours.getHours()}:${minutes.getMinutes()}:${seconds.getSeconds()}`;
-// console.log(currenttime);
-
+  function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+}
 setInterval(function() {
-  var d = new Date();
+  let d = new Date();
   console.log(d);
 
-  var hours = new Date ();
-  console.log(hours.getHours());
+  let hours = checkTime(d.getHours());
+  console.log(d.getHours());
 
-  var minutes = new Date ();
-  console.log(minutes.getMinutes());
+  let minutes = checkTime(d.getMinutes());
+  console.log(d.getMinutes());
 
-  var seconds = new Date ();
-  console.log(seconds.getSeconds());
+  let seconds = checkTime(d.getSeconds());
+  console.log(d.getSeconds());
 
-  var currenttime = `${hours.getHours()}:${minutes.getMinutes()}:${seconds.getSeconds()}`;
+  let currenttime = `${hours}:${minutes}:${seconds}`;
   console.log(currenttime);
 
 document.getElementById("clock-display").innerHTML = currenttime;
