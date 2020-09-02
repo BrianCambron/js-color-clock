@@ -18,5 +18,9 @@ setInterval(function() {
   let currenttime = `${hours}:${minutes}:${seconds}`;
   console.log(currenttime);
 
+  function calculatePercent(percent, num){
+    return (percent / 100) * num;
+}
+console.log(calculatePercent(d.getMinutes(), d.getSeconds()));
 document.getElementById("clock-display").innerHTML = currenttime;
 console.log(currenttime);} , 1000);
