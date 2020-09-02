@@ -3,16 +3,38 @@
   return i;
 }
 const progressBar = document.querySelector('.clock-progress-bar') //<- better to use queryselector rather than getElementbyId
+const clock = document.querySelector('.clock')
+let isHovering = false;
+clock.addEventListener('mouseover', function(){
+  isHovering = true
+  // console.log('mouseover');
+});
+clock.addEventListener('mouseout', function(){
+  isHovering = false
+});
+
 setInterval(function() {
   let d = new Date();
-  console.log(d);
-  let hours, minutes, seconds;
-   hours = checkTime(d.getHours());
+  let currentTime;
+  // console.log(d)
 
-   minutes = checkTime(d.getMinutes());
+  const hexHours = checkTime(d.getHours().toString(16));
+  const hexMinutes = checkTime(d.getMinutes().toString(16));
+  const hexSeconds = checkTime(d.getSeconds().toString(16));
 
-   seconds = checkTime(d.getSeconds());
-  let currenttime = `${hours}:${minutes}:${seconds}`;
+  const hours = checkTime(d.getHours());
+  const minutes = checkTime(d.getMinutes());
+  const seconds = checkTime(d.getSeconds());
+
+  if (isHovering) {
+    console.log('hovering');
+    currenttime = `${hexHours}:${hexMinutes}:${hexSeconds}`;
+  } else {
+    console.log('not hovering')
+    currenttime = `${hours}:${minutes}:${seconds}`;
+  }
+
+  // let currenttime = `${hours}:${minutes}:${seconds}`;
   console.log(currenttime);
   console.log(seconds / 60); //<-percentage of a minute that the current seconds represents
   progressBar.style.width = `${seconds / 60 * 14}rem` //<- Using the percent above, dynamically modify the length of the timer bar
