@@ -16,24 +16,21 @@ clock.addEventListener('mouseout', function(){
 setInterval(function() {
   let d = new Date();
   let currentTime;
-  // console.log(d)
+  console.log(d)
 
-  const hexHours = checkTime(d.getHours().toString(16));
-  const hexMinutes = checkTime(d.getMinutes().toString(16));
-  const hexSeconds = checkTime(d.getSeconds().toString(16));
+  const hexHours = checkTime(d.getHours().toString(16).slice(-2));
+  const hexMinutes = checkTime(d.getMinutes().toString(16).slice(-2)); //<- makes it into hexadecimal
+  const hexSeconds = checkTime(d.getSeconds().toString(16).slice(-2));
 
   const hours = checkTime(d.getHours());
   const minutes = checkTime(d.getMinutes());
   const seconds = checkTime(d.getSeconds());
-
   if (isHovering) {
-    console.log('hovering');
     currenttime = `${hexHours}:${hexMinutes}:${hexSeconds}`;
   } else {
-    console.log('not hovering')
     currenttime = `${hours}:${minutes}:${seconds}`;
   }
-
+clock.style.backgroundColor = `#${hexHours}${hexMinutes}${hexSeconds}`; //<- dynamically changes color
   // let currenttime = `${hours}:${minutes}:${seconds}`;
   console.log(currenttime);
   console.log(seconds / 60); //<-percentage of a minute that the current seconds represents
